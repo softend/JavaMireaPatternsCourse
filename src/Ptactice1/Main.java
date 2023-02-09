@@ -9,6 +9,7 @@ public class Main {
 
         ArrayList<String> list1 = new ArrayList<>();
         ArrayList<String> list2 = new ArrayList<>();
+        list1.add("asd");
         System.out.println(comparator.compare(list1,list2));
     }
 }
