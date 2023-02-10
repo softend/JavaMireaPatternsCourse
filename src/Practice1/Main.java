@@ -1,4 +1,4 @@
-package Ptactice1;
+package Practice1;
 
 import java.util.ArrayList;
 import java.util.Comparator;
