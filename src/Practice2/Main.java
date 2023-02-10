@@ -9,6 +9,7 @@ import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
+        //Создаем список и заполняем его
         List<Human> list = new ArrayList<>();
         list.add(new Human(65,"Joseph", "Gleason", LocalDate.of(2002, 9,10),50));
         list.add(new Human(55,"Mattew", "Zenchennko", LocalDate.of(2055, 8,11),51));
@@ -19,7 +20,9 @@ public class Main {
         list.add(new Human(23,"Kate", "Johnson", LocalDate.of(1980, 3,16),56));
         list.add(new Human(15,"Ann", "Johnson", LocalDate.of(2008, 2,17),57));
 
-        list.stream().filter(human -> human.age < 20).sorted((a,b) -> {
+        //Фильтруем по возрасту больше 20, сортируем по последней букве имени, для каждого увеличиваем
+        //возраст на 3 и выводим
+        list.stream().filter(human -> human.age > 20).sorted((a,b) -> {
             char c1 = a.firstName.charAt(a.firstName.length()-1), c2 = b.firstName.charAt(b.firstName.length()-1);
             return Character.compare(c1, c2);
         }).forEach((a)->{
@@ -27,7 +30,8 @@ public class Main {
             System.out.println(a);
         });
 
-        System.out.println(list.stream().mapToInt(Human::getAge).average());
+        // Среднее значение
+        System.out.println(list.stream().mapToInt(Human::getAge).average().getAsDouble());
 
     }
 }
