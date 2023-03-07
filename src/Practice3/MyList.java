@@ -3,6 +3,9 @@ package Practice3;
 import java.util.*;
 import java.util.concurrent.Semaphore;
 
+//ОБЪЯСНЕНИЕ: каждый метод исходного ArrayList обертываем в semaphore, то есть когда поток доходит, он запрашивает разрешение, а разрешений только одно
+
+
 public class MyList implements List {
     private Semaphore semaphore = new Semaphore(1);
     private ArrayList<Object> list = new ArrayList<>();
@@ -163,13 +166,13 @@ public class MyList implements List {
 
     @Override
     public void add(int index, Object element) {
-        try {
-            semaphore.acquire();
+//        try {
+//            semaphore.acquire();
             list.add(index, element);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        semaphore.release();
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+//        semaphore.release();
     }
 
     @Override

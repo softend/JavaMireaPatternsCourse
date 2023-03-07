@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+//ОБЪЯСНЕНИЕ: К каждому методу пишем synchronized, и с ним одновременно может работать только один поток
 public class MyMap implements Map<Object, Object> {
 
     private Map<Object, Object> map = new HashMap<>();
